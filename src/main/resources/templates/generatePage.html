@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Random Images</title>
+</head>
+<body>
+    <h1>How many numbers do you want to generate?</h1>
+    <form 
+        action="#"
+        th:action="@{/generate}" 
+        th:object="${generateObj}"
+        method="post"
+    >
+    <!-- 
+        @{/generate} will be linked to the @PostMapping within the controller once the form is submitted 
+        ${generateObj} will be linked to the new attribute that is created within the controller    
+    -->
+    <p>
+        <input type="text" th:field="*{numberVal}" />
+        <input type="submit" value="Generate" /> 
+    </p>
+
+    <!-- 
+        *{numberVal} will be linked to the numberVal that was declared inside the generate.java
+     -->
+</body>
+</html>
